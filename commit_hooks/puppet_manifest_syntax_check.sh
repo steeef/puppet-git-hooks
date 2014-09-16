@@ -15,7 +15,7 @@ fi
 # Get list of new/modified manifest and template files to check (in git index)
 # Check puppet manifest syntax
 echo -e "\x1B[0;36mChecking puppet manifest syntax for $module_path...\x1B[0m"
-puppet parser validate --color=false $1 2>&1 > $error_msg
+puppet parser validate --parser=future --color=false $1 2>&1 > $error_msg
 if [ $? -ne 0 ]; then
     echo -en "\x1B[0;31m"
     syntax_errors=`expr $syntax_errors + 1`
