@@ -16,7 +16,7 @@ fi
 
 # Check ERB template syntax
 echo -e "\x1B[0;36mChecking erb template syntax for $module_path...\x1B[0m"
-cat $1 | erb -x -T - | ruby -c 2>&1 > $error_msg
+cat $1 | erb -P -x -T - | ruby -c 2>&1 > $error_msg
 if [ $? -ne 0 ]; then
     echo -en "\x1B[0;31m"
     cat $error_msg
