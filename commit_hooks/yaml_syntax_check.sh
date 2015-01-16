@@ -15,7 +15,7 @@ fi
 # Get list of new/modified manifest and template files to check (in git index)
 # Check YAML file syntax
 echo -e "\x1B[0;36mChecking yaml syntax for $module_path...\x1B[0m"
-ruby -e "require 'yaml'; YAML.parse(File.open('$1'))" 2> $error_msg > /dev/null
+python -c "import sys, yaml; yaml.load(sys.stdin)" < "$1" 2> $error_msg > /dev/null
 if [ $? -ne 0 ]; then
     echo -en "\x1B[0;31m"
     cat $error_msg
