@@ -7,7 +7,7 @@ subhook_root=hooks/commit_hooks
 tmptree=$(mktemp -d)
 
 while read oldrev newrev refname; do
-    git archive $newrev | tar x -C ${tmptree}
+    git archive $newrev | tar x -m -C ${tmptree}
     for changedfile in $(git diff --name-only $oldrev $newrev --diff-filter=ACM); do
         tmpmodule="$tmptree/$changedfile"
 
