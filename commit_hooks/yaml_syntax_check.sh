@@ -25,7 +25,7 @@ fi
 rm -f $error_msg
 
 if [ "$syntax_errors" -ne 0 ]; then
-    echo -e "\x1B[0;31mError: $syntax_errors syntax error(s) found in hiera yaml. Commit will be aborted.\x1B[0m"
+    echo -e "\x1B[0;31mError: $syntax_errors syntax error(s) found in yaml. Commit will be aborted.\x1B[0m"
     exit 1
 fi
 
